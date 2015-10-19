@@ -18,7 +18,7 @@ class Conversation < ActiveRecord::Base
   end
 
   def self.by_recency
-    order(created_at: :desc)
+    order(updated_at: :desc)
   end
 
   def self.with_no_messages
