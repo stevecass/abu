@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  resource :users, only: [:create]
   resources :topics, only: [:index, :show] do
     resources :conversations, only: [:index, :show]
   end
   get 'conversations' => 'conversations#recent'
   root 'topics#index'
+  get 'register' => 'users#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
