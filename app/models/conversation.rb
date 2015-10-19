@@ -2,6 +2,10 @@ class Conversation < ActiveRecord::Base
   belongs_to :topic, touch: true
   belongs_to :author, class_name: 'User', foreign_key: :user_id
   has_many :messages, -> {order(created_at: :desc)}
+  validates :name, presence: true
+  validates :author, presence: true
+  validates :topic, presence: true
+  validates_associated :messages
 
   delegate :name, to: :topic, prefix: true, allow_nil: true
 
