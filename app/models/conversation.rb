@@ -13,4 +13,12 @@ class Conversation < ActiveRecord::Base
     "#{id}-#{name.parameterize}"
   end
 
+  def self.by_recency
+    order(created_at: :desc)
+  end
+
+  def self.with_no_messages
+    includes(:messages).where(messages: {id:nil})
+  end
+
 end
