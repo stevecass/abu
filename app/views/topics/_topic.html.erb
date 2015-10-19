@@ -1,4 +1,4 @@
 <tr class="topic">
   <td class="name"><%= topic.name %> </td>
-  <td class="post"><%= topic.updated_at %></td>
+  <td class="post"><%= topic.updated_at.to_formatted_s(:forum) %></td>
 </tr>
