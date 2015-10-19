@@ -7,4 +7,8 @@ class ConversationsController < ApplicationController
   def show
     @conversation = Conversation.find(params[:id])
   end
+
+  def recent
+    @conversations = Conversation.by_recency
+  end
 end
