@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :topics, only: [:index]
+  resources :topics, only: [:index, :show] do
+    resources :conversations, only: [:index]
+  end
   root 'topics#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
