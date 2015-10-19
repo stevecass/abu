@@ -9,4 +9,8 @@ class Conversation < ActiveRecord::Base
     messages.order(id: :desc).first
   end
 
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
+
 end
