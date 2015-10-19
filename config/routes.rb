@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :topics, only: [:index, :show] do
-    resources :conversations, only: [:index]
+    resources :conversations, only: [:index, :show]
   end
   root 'topics#index'
 

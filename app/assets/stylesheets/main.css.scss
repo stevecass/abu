@@ -1,0 +1,18 @@
+div.conversation {
+  div.message {
+    margin: 5px 0;
+    border-top :1px dashed gray;
+    .header {
+      .author {
+        font-weight: bolder;
+      }
+      .timestamp {
+        font-style: italic;
+      }
+    }
+    .body {
+      padding-bottom: 10px;
+
+    }
+  }
+}
