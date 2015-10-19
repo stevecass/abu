@@ -46,6 +46,9 @@ User stories
 * As a logged in user, I want to see my most recent messages.
 * As a logged in user, I want to see conversations I started.
 
+###R3
+Convert the add messages and start conversations functionality to use ajax
+
 ###R4
 * As a logged in user, I want to like user messages.
 * As a logged in user, I should only be able to like a message once.
