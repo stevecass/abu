@@ -32,6 +32,12 @@ RSpec.feature 'Adding message features' do
     expect(page).to have_content("Content can't be blank")
   end
 
+  scenario "Won't add a blank messsage with ajax", js:true do
+    log_in
+    post_message_with_content ""
+    expect(page).to have_content("Content can't be blank")
+  end
+
   scenario 'Adds a message to an existing conversation without js', js:false do
     log_in
     test_message_posting

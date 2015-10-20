@@ -12,7 +12,8 @@ $(document).ready(function(){
       $('div#conversation').prepend(response);
     })
     .fail(function(jqXHR, textStatus, errorThrown){
-      alert(jqXHR.responseText);
+      var html = '<div id="flash"><span class="alert">' + jqXHR.responseText + '</span></div>';
+      $('#wrapper').prepend(html);
     });
 
   });
