@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature 'Adding messages' do
-  let(:msg) { FactoryGirl.create(:message) }
+RSpec.feature 'Adding message features' do
+  let!(:msg) { FactoryGirl.create(:message) }
   let(:new_msg) { FactoryGirl.build(:message) }
   let(:user) { FactoryGirl.create(:user) }
 
@@ -18,16 +18,28 @@ RSpec.feature 'Adding messages' do
     click_button 'Create Message'
   end
 
-  scenario "Won't add a blank messsage" do
+  def test_message_posting
+    existing = msg.id
+    post_message_with_content new_msg.content
+    selector = "[data-id=\"m#{existing + 1}\"]"
+    expect(page).to have_selector(selector)
+  end
+
+
+  scenario "Won't add a blank messsage", js:false do
     log_in
     post_message_with_content ""
     expect(page).to have_content("Content can't be blank")
   end
 
-
-  scenario 'Add a message to an existing conversation' do
+  scenario 'Adds a message to an existing conversation without js', js:false do
     log_in
-    post_message_with_content new_msg.content
-    expect(page).to have_content(new_msg.content)
+    test_message_posting
   end
+
+  scenario 'Adds a message to an existing conversation with ajax', js:true do
+    log_in
+    test_message_posting
+  end
+
 end
