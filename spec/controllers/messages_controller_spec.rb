@@ -2,9 +2,13 @@ require 'rails_helper'
 
 describe MessagesController do
 
-  let(:user) { User.create(username:'steven', email:'steven@example.com', password:'abc1234')}
+  let(:user) { FactoryGirl.create(:user)}
   let(:valid_attrs) { FactoryGirl.build(:message).attributes }
   let(:invalid_attrs){ FactoryGirl.build(:message, content:nil ).attributes }
+
+  before(:each) do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+  end
 
   describe '#create' do
 
@@ -15,7 +19,6 @@ describe MessagesController do
     end
 
     it 'redirects after creating a message' do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       post :create, {message:  valid_attrs }
       conv = Conversation.find(valid_attrs["conversation_id"])
       expect(response).to redirect_to topic_conversation_path(conv.topic, conv)
