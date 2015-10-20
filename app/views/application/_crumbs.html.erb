@@ -1,0 +1,6 @@
+<div id="breadcrumbs">
+<%= link_to 'All topics', topics_path %>
+<% if @conversation %>
+   | <%= link_to @conversation.topic_name, topic_path(@conversation.topic) %>
+<% end %>
+</div>
