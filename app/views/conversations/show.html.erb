@@ -1,5 +1,6 @@
 <h1 class="conversation"><%= @conversation.name %></h1>
 <div id="conversation" >
+  <div id="lede">Started by <%= @conversation.author.username %>  at <%= @conversation.created_at.to_formatted_s(:forum) %></div>
   <%= render @conversation.messages %>
 </div>
 

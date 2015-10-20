@@ -6,13 +6,31 @@ $heading-bg-sec: #CCDAFF;
 body {
   font-family: arial, helvetica, sans-serif;
 }
+#wrapper {
+  width: 60%;
+  min-width:700px;
+  margin: 0 auto;
+}
+#breadcrumbs {
+  margin: 10px 0;
+  font-size: 0.8em;
+  background-color: $heading-bg-sec;
+}
+
+h1 {
+  font-size: 1.5em;
+  background-color: $heading-bg;
+}
+h2 {
+  font-size: 1.2em;
+}
 
 h1, h2, h3 {
   color: $heading;
-  background-color: $heading-bg;
 }
 form {
-  padding: 0 5px;
+  padding: 5px;
+  margin: 5px;
 
   div {
     padding: 5px 0;
@@ -40,8 +58,13 @@ form {
 }
 
 div.form{
-  width:350px;
+  width:60%;
   outline: 1px solid $heading-sec;
+
+  h2 {
+    padding: 5px ;
+  }
+
 }
 
 form.new_user {
@@ -54,11 +77,15 @@ form.new_user {
 }
 
 div#conversation {
+  div#lede {
+    font-style: italic;
+  }
   div.message {
     margin: 5px 0;
     
     .header {
       background-color: $heading-bg-sec;
+      padding: 4px 0;
       .author {
         font-weight: bolder;
       }
@@ -71,4 +98,11 @@ div#conversation {
 
     }
   }
+}
+
+table.topic_list {
+  td.name {
+    width: 450px;
+  }
+
 }
