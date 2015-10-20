@@ -27,10 +27,7 @@ describe MessagesController do
     end
 
     it 'does not create a message if params invalid' do
-            expect do 
-        post :create, {message: invalid_attrs }
-      end.not_to change{Message.count}
-
+      expect{post :create, {message: invalid_attrs }}.not_to change{Message.count}
     end
 
   end
