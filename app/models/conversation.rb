@@ -8,6 +8,7 @@ class Conversation < ActiveRecord::Base
   validates_associated :messages
 
   delegate :name, to: :topic, prefix: true, allow_nil: true
+  delegate :id, to: :topic, prefix: true, allow_nil: true
 
   def latest_message
     messages.order(id: :desc).first
