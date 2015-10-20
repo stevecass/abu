@@ -3,9 +3,9 @@ class MessagesController < ApplicationController
     msg = Message.create(message_params)
     if request.xhr?
       if msg.save
-        render partial: 'message'
+        render partial: 'message', locals:{message:msg}
       else
-        render text: msg.errors.full_messages, status: 422
+        render text: msg.errors.full_messages.join(', '), status: 422
       end
     else
       if msg.save
