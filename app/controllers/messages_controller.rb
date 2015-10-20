@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
       end
     else
       if msg.save
-        redirect_to topic_conversation_path(msg.conversation.topic_id, msg.conversation)
+        redirect_to topic_conversation_path(msg.conversation.topic, msg.conversation)
       else
         @conversation = Conversation.find(params[:message][:conversation_id])
         flash.now.alert = msg.errors.full_messages.join(', ')
