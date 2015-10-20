@@ -14,8 +14,14 @@
         <%= message %>
       </div>
     <% end %>
-  <% end %>
   </div>
+<% end %>
+<% if current_user %>
+  <%= link_to 'Logout', logout_path %>
+<% else %>
+  <%= link_to 'Login', login_path %>
+  <%= link_to 'Register', register_path %>
+<% end %>
 <%= yield %>
 
 </body>
