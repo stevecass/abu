@@ -5,4 +5,8 @@ class Message < ActiveRecord::Base
   validates :content, presence: true
 
   delegate :username, to: :user, prefix: false, allow_nil: true
+
+  def in_caps
+    content.upcase if content
+  end
 end
