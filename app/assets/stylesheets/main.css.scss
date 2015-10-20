@@ -1,3 +1,23 @@
+body {
+  font-family: arial, helvetica, sans-serif;
+}
+
+form {
+  div {
+    padding: 5px 0;
+    label {
+      display: inline-block;
+      width:80px;
+    }
+    textarea {
+      vertical-align: middle;
+    }
+  }
+  textarea {
+    width: 300px;
+    height:40px;
+  }
+}
 #flash {
   font-weight: bolder;
   .alert{

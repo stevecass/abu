@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :topics, only: [:index, :show] do
     resources :conversations, only: [:index, :show]
   end
+  resources :messages, only: [:create]
   get 'conversations' => 'conversations#recent'
   root 'topics#index'
   get 'register' => 'users#new'
