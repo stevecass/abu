@@ -1,9 +1,10 @@
-<h1 class="conversation"><%= @conversation.name %> </h1>
+<h1 class="conversation"><%= @conversation.name %></h1>
 <div id="conversation" >
   <%= render @conversation.messages %>
 </div>
 
 <% if current_user %>
+<div class="form">
 <h2>Add your message</h2>
   <%= form_for Message.new do |f| %>
     <%= f.hidden_field :conversation_id, value: @conversation.id %>
@@ -20,3 +21,4 @@
     </div>
   <% end %>
 <% end %>
+</div>
