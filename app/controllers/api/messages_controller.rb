@@ -1,14 +1,12 @@
 class Api::MessagesController < Api::ApiController
+
   def create
-
-    render text: 'Not logged in', status: 422 and return  unless current_user
-
-
+    render json: {msg: 'Not logged in', status: 403 }, status:403 and return unless current_user
     msg = Message.new(message_params)
     if msg.save
       render json: msg
     else
-      render text: msg.errors.full_messages.join(' '), status: 422
+      render json: {msg: msg.errors.full_messages.join(' '), status: 422} , status:422
     end
   end
 
