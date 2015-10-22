@@ -1,0 +1,108 @@
+$heading: #474C59;
+$heading-bg: #CCDAFF;
+$heading-sec: #40517F;
+$heading-bg-sec: #CCDAFF;
+
+body {
+  font-family: arial, helvetica, sans-serif;
+}
+#wrapper {
+  width: 60%;
+  min-width:700px;
+  margin: 0 auto;
+}
+#breadcrumbs {
+  margin: 10px 0;
+  font-size: 0.8em;
+  background-color: $heading-bg-sec;
+}
+
+h1 {
+  font-size: 1.5em;
+  background-color: $heading-bg;
+}
+h2 {
+  font-size: 1.2em;
+}
+
+h1, h2, h3 {
+  color: $heading;
+}
+form {
+  padding: 5px;
+  margin: 5px;
+
+  div {
+    padding: 5px 0;
+    label {
+      font-size: smaller;
+      display: inline-block;
+      width:80px;
+    }
+    input[type="text"] {
+      width: 300px;
+    }
+    textarea {
+      vertical-align: middle;
+      width: 300px;
+      height:40px;
+    }
+  }
+}
+#flash {
+  font-weight: bolder;
+  .alert{
+    color:red;
+  }
+
+}
+
+div.form{
+  width:60%;
+  outline: 1px solid $heading-sec;
+
+  h2 {
+    padding: 5px ;
+  }
+
+}
+
+form.new_user {
+  .field_with_errors  {
+    display: inline-block;
+    input {
+      border: 1px solid red;
+    }
+  }
+}
+
+div#conversation {
+  div#lede {
+    font-style: italic;
+  }
+  div.message {
+    margin: 5px 0;
+    
+    .header {
+      background-color: $heading-bg-sec;
+      padding: 4px 0;
+      .author {
+        font-weight: bolder;
+      }
+      .timestamp {
+        font-style: italic;
+      }
+    }
+    .body {
+      padding-bottom: 10px;
+
+    }
+  }
+}
+
+table.topic_list {
+  td.name {
+    width: 450px;
+  }
+
+}

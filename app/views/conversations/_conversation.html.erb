@@ -1,0 +1,3 @@
+<li>
+  <%= link_to conversation.name, topic_conversation_path(conversation.topic, conversation) %> Latest from <%= conversation.latest_message.username %> at <%= conversation.latest_message.created_at.to_formatted_s(:forum) %>
+</li>

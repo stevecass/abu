@@ -1,0 +1,25 @@
+<h1 class="conversation"><%= @conversation.name %></h1>
+<div id="conversation" >
+  <div id="lede">Started by <%= @conversation.author.username %>  at <%= @conversation.created_at.to_formatted_s(:forum) %></div>
+  <%= render @conversation.messages %>
+</div>
+
+<% if current_user %>
+<div class="form">
+<h2>Add your message</h2>
+  <%= form_for Message.new do |f| %>
+    <%= f.hidden_field :conversation_id, value: @conversation.id %>
+    <div>
+      <%= f.label :author %>
+      <%= text_field_tag :throwaway, current_user.username, disabled: true %>
+    </div>
+    <div>
+      <%= f.label :content %>
+      <%= f.text_area :content %>
+    </div>
+    <div>
+      <%= f.submit  %>
+    </div>
+  <% end %>
+<% end %>
+</div>

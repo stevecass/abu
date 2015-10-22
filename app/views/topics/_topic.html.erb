@@ -1,0 +1,4 @@
+<tr class="topic">
+  <td class="name"><%= link_to topic.name, topic_path(topic) %> </td>
+  <td class="post"><%= topic.updated_at.to_formatted_s(:forum) %></td>
+</tr>

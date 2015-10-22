@@ -19,7 +19,7 @@ cats = Category.all
   6.times do
     thr = Conversation.create!(name:Faker::Commerce.product_name, topic:top, author:u )
     Random.rand(20).times do
-      msg = Message.create!(user:u, conversation:thr, content:Faker::Lorem.sentence)
+      msg = Message.create!(user:u, conversation:thr, content:Faker::Lorem.paragraphs(2).join("\n"))
     end
   end
 end

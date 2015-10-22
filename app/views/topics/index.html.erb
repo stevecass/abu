@@ -1,0 +1,13 @@
+<h1>Topics</h1>
+<% @categories.each do |cat| %>
+  <h2><%= cat.name %></h2>
+  <table class="topic_list">
+    <tr>
+      <th class="topic_name">Topic Name</th>
+      <th class="topic_post">Last post</th>
+    </tr>
+    <%= render cat.topics %>
+  </table>
+  
+<% end %>
+

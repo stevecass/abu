@@ -1,0 +1,5 @@
+<div class="message" data-id="m<%= message.id %>">
+  <div class="header">From  <span class="author"><%= message.username %></span> 
+  at <span class="timestamp"><%= message.created_at.to_formatted_s(:forum) %></span> </div>
+  <div class="body"><%= message.content %> </div>
+</div>
