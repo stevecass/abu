@@ -14,12 +14,14 @@ Category.create!(name:'Product guides', display_order:30)
 Category.create!(name:'Miscellaneous', display_order:40)
 cats = Category.all
 
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
+
 12.times do
-  top = Topic.create!(name: Faker::Company.catch_phrase, category: cats.sample)
+  top = Topic.create!(name: "#{Faker::App.name} #{alphabet.sample} #{Faker::App.name}", category: cats.sample)
   6.times do
     thr = Conversation.create!(name:Faker::Commerce.product_name, topic:top, author:u )
     Random.rand(20).times do
-      msg = Message.create!(user:u, conversation:thr, content:Faker::Lorem.paragraphs(2).join("\n"))
+      msg = Message.create!(user:u, conversation:thr, content:Faker::Lorem.paragraphs(3).join("\n"))
     end
   end
 end
