@@ -4,7 +4,6 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
-    redirect_to topic_conversations_path(@topic)
+    redirect_to topic_conversations_path(Topic.find(params[:id]))
   end
 end
