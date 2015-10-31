@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     end
     resources :messages, only: [:create]
     resource :sessions, only: [:create]
+    get 'conversations' => 'conversations#recent'
   end
 
   resource :sessions, only: [:create]

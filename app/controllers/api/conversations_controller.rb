@@ -8,4 +8,8 @@ class Api::ConversationsController < Api::ApiController
     conv = Conversation.find(params[:id])
     render json: conv.to_json(include: [:messages])
   end
+
+  def recent
+    render json: Conversation.by_recency, methods: :latest_message
+  end
 end
