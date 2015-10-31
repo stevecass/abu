@@ -6,7 +6,7 @@ class Api::ConversationsController < Api::ApiController
 
   def show
     conv = Conversation.find(params[:id])
-    render json: conv.to_json(include: [:messages])
+    render json: conv.to_json({include: {messages: {methods: :username}} })
   end
 
   def recent
